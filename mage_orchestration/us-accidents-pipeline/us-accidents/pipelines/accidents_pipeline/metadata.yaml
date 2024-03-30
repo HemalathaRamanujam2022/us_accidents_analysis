@@ -1,0 +1,110 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: data_loaders/load_data_from_kaggle.py
+  downstream_blocks:
+  - export_to_gcs_with_gcloud
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: load_data_from_kaggle
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: load_data_from_kaggle
+- all_upstream_blocks_executed: true
+  color: teal
+  configuration:
+    file_source:
+      path: custom/export_to_gcs_with_gcloud.py
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: export_to_gcs_with_gcloud
+  retry_config: null
+  status: executed
+  timeout: null
+  type: custom
+  upstream_blocks:
+  - load_data_from_kaggle
+  uuid: export_to_gcs_with_gcloud
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: transformers/run_spark_dataproc_cluster.py
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: run_spark_dataproc_cluster
+  retry_config: null
+  status: executed
+  timeout: null
+  type: transformer
+  upstream_blocks: []
+  uuid: run_spark_dataproc_cluster
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: data_exporters/export_data_to_bigquery.py
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: export_data_to_bigquery
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks: []
+  uuid: export_data_to_bigquery
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: export_data_using_spark
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: export_data_using_spark
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2024-03-25 07:25:12.172482+00:00'
+data_integration: null
+description: Move data from Kaggle to Big Query
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: accidents-pipeline
+notification_config: {}
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers: null
+spark_config: {}
+tags: []
+type: python
+uuid: accidents_pipeline
+variables_dir: /home/src/mage_data/us-accidents
+widgets: []

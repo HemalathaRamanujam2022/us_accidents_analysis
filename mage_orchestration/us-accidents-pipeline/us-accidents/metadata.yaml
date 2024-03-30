@@ -1,0 +1,40 @@
+project_type: standalone
+
+variables_dir: ~/.mage_data
+# remote_variables_dir: s3://bucket/path_prefix
+
+variables_retention_period: '90d'
+
+emr_config:
+spark_config:
+  # Application name
+  app_name: my spark app
+  spark_master: local
+  executor_env: {}
+  spark_jars:
+  - spark-bigquery-latest_2.12.jar
+  - gcs-connector-latest-hadoop2.jar
+  spark_home:
+  others:
+    # spark.executor.memory: 2g
+    # spark.executor.cores: '2'
+    # spark.default.parallelism: '24'
+    # spark.sql.shuffle.partitions: '24'
+  use_custom_session: false
+  custom_session_var_name: spark
+notification_config:
+  alert_on:
+  - trigger_failure
+  - trigger_passed_sla
+  slack_config:
+    webhook_url: "{{ env_var('MAGE_SLACK_WEBHOOK_URL') }}"
+  teams_config:
+    webhook_url: "{{ env_var('MAGE_TEAMS_WEBHOOK_URL') }}"
+project_uuid: 02780888ebe24181aaba7caf43b46581
+help_improve_mage: false
+# features:
+#   command_center: true
+#   compute_management: true
+#   dbt_v2: true
+pipelines:
+remote_variables_dir:

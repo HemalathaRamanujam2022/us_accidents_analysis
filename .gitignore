@@ -172,9 +172,8 @@ scratch*
 magic-zoomcamp
 *.json
 
-*config*.json
-/data*
-/data/*
-~/.kaggle/*
-~/.kaggle*
-
+.config/
+.kaggle/
+data/
+/mage_orchestration/us-accidents-pipeline/*.jar
+/mage_orchestration/us-accidents-pipeline/mage_data*

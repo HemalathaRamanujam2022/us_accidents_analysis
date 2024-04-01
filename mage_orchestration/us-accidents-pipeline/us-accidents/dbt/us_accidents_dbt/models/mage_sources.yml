@@ -1,0 +1,14 @@
+sources:
+- description: Dataframes Mage upstream blocks
+  loader: mage
+  name: mage_us_accidents_dbt
+  schema: us_accidents_2016_2023
+  tables:
+  - description: Dataframe for block `export_data_to_bigquery` of the `accidents_pipeline`
+      mage pipeline.
+    identifier: mage_accidents_pipeline_export_data_to_bigquery
+    meta:
+      block_uuid: export_data_to_bigquery
+      pipeline_uuid: accidents_pipeline
+    name: accidents_pipeline_export_data_to_bigquery
+version: 2

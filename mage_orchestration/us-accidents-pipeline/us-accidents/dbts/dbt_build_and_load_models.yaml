@@ -1,0 +1,2 @@
+# e.g. --select project/models --exclude project/models/some_dir
+dbt seed --select seeds/us_states_lookup.csv 

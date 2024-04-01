@@ -123,3 +123,6 @@ default:
     source: trino-cli                         # Optional
     user: admin
     verify: /path/to/your/ca.crt              # Optional
+  # DBT credentials
+  DBT_PROFILES_DIR: "{{ env_var('DBT_PROFILES_DIR') }}"
+  DBT_PROJECT_DIR: "{{ env_var('DBT_PROJECT_DIR') }}"

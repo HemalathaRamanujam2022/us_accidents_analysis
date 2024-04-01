@@ -1,0 +1,5 @@
+version: 2
+
+seeds: 
+  - name: us_states_lookup
+    description: List of US States with abbreviations and full names.

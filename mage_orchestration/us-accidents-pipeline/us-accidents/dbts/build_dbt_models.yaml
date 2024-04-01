@@ -1,0 +1,2 @@
+--select seeds/us_states_lookup.csv
+--select models/core/dim_states.sql, models/staging/stg_accidents_data.sql+

@@ -7,7 +7,7 @@ version: '1.0.0'
 config-version: 2
 
 # This setting configures which "profile" dbt uses for this project.
-profile: 'us_accidents_dbt'
+profile: 'us_accidents_dbt_prf'
 
 # These configurations specify where dbt should look for different types of files.
 # The `model-paths` config, for example, states that models in this project can be
@@ -33,5 +33,15 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   us_accidents_dbt:
     # Config indicated by + and applies to all files under models/example/
-    example:
-      +materialized: view
+    staging:
+      materialized: view
+    core:
+      materialized: table
+vars:
+  severity_codes: [1, 2, 3, 4]
+
+seeds:
+  us_accidents_dbt:
+    us_states_lookup:
+      +column_types:
+        Abbreviation: string

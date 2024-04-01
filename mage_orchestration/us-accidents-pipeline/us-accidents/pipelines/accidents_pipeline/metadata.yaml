@@ -22,7 +22,8 @@ blocks:
   configuration:
     file_source:
       path: custom/export_to_gcs_with_gcloud.py
-  downstream_blocks: []
+  downstream_blocks:
+  - run_spark_dataproc_cluster
   executor_config: null
   executor_type: local_python
   has_callback: false
@@ -40,7 +41,8 @@ blocks:
   configuration:
     file_source:
       path: transformers/run_spark_dataproc_cluster.py
-  downstream_blocks: []
+  downstream_blocks:
+  - export_data_to_bigquery
   executor_config: null
   executor_type: local_python
   has_callback: false
@@ -50,7 +52,8 @@ blocks:
   status: executed
   timeout: null
   type: transformer
-  upstream_blocks: []
+  upstream_blocks:
+  - export_to_gcs_with_gcloud
   uuid: run_spark_dataproc_cluster
 - all_upstream_blocks_executed: true
   color: null
@@ -67,23 +70,33 @@ blocks:
   status: executed
   timeout: null
   type: data_exporter
-  upstream_blocks: []
+  upstream_blocks:
+  - run_spark_dataproc_cluster
   uuid: export_data_to_bigquery
 - all_upstream_blocks_executed: true
   color: null
-  configuration: {}
+  configuration:
+    dbt:
+      command: build
+    dbt_profile_target: ''
+    dbt_project_name: dbt/us_accidents_dbt
+    disable_query_preprocessing: false
+    export_write_policy: append
+    file_source:
+      path: dbts/load_dbt.yaml
+    use_raw_sql: false
   downstream_blocks: []
   executor_config: null
   executor_type: local_python
   has_callback: false
-  language: python
-  name: export_data_using_spark
+  language: yaml
+  name: load_dbt
   retry_config: null
-  status: executed
+  status: updated
   timeout: null
-  type: data_loader
+  type: dbt
   upstream_blocks: []
-  uuid: export_data_using_spark
+  uuid: load_dbt
 cache_block_output_in_memory: false
 callbacks: []
 concurrency_config: {}

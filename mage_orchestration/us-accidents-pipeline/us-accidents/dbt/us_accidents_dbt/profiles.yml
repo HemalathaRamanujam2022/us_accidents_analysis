@@ -1,0 +1,11 @@
+us_accidents_dbt_prf:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: service-account
+      project: "{{ env_var('GCP_PROJECT_ID') }}" 
+      dataset: "{{ env_var('DBT_DATASET_BQ') }}" 
+      location: "{{ env_var('DBT_DATASET_LOCATION') }}" 
+      threads: 4
+      keyfile: /home/src/{{ env_var('GOOGLE_APPLICATION_CREDENTIALS') }}

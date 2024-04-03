@@ -29,25 +29,29 @@ def transform_custom(*args,**kwargs):
     gcp_project_id = os.environ['GCP_PROJECT_ID']
     os.system(f'gcloud config set project {gcp_project_id}')
 
+
+    bq_ds = os.environ['DBT_DATASET_BQ']
+    print("bq_ds : ", bq_ds)
+
     # os.system("bq show --format=prettyjson us_accidents_2016_2023.accidents_data")
 
-
-    os.system('bq mk --dataset us_accidents_2016_2023')
+    # We are creating the bigquery dataset as part of Terraform
+    #  os.system(f'bq mk --dataset {bq_ds}')
     
-    os.system('bq mk  \
+    os.system(f'bq mk  \
               --table  \
               --schema scripts/accidents_schema.json  \
               --time_partitioning_field Start_Time  \
               --time_partitioning_type DAY  \
-               us_accidents_2016_2023.accidents_data')
+               {bq_ds}.accidents_data')
 
   
-    os.system('bq update --clustering_fields=Severity,State us_accidents_2016_2023.accidents_data')
+    os.system(f'bq update --clustering_fields=Severity,State {bq_ds}.accidents_data')
 
     gcp_bucket = os.environ['GCP_BUCKET']
     os.system(f"bq load \
                 --source_format=PARQUET  \
-                us_accidents_2016_2023.accidents_data \
+                {bq_ds}.accidents_data \
                 gs://{gcp_bucket}/pq/Start_Year_Month*")
   
     return 'success'

@@ -1,0 +1,242 @@
+[
+    {
+        "mode": "NULLABLE",
+        "name": "ID",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "Source",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "Severity",
+        "type": "INTEGER"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "Start_Time",
+        "type": "TIMESTAMP"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "End_Time",
+        "type": "TIMESTAMP"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "Start_Lat",
+        "type": "FLOAT"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "Start_Lng",
+        "type": "FLOAT"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "End_Lat",
+        "type": "FLOAT"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "End_Lng",
+        "type": "FLOAT"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "Distance_miles",
+        "type": "FLOAT"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "Description",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "Street",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "City",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "County",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "State",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "Zipcode",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "Country",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "Timezone",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "Airport_Code",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "Weather_Timestamp",
+        "type": "TIMESTAMP"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "Temperature_F",
+        "type": "FLOAT"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "Wind_Chill_F",
+        "type": "FLOAT"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "Humidity_perc",
+        "type": "FLOAT"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "Pressure_inches",
+        "type": "FLOAT"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "Visibility_miles",
+        "type": "FLOAT"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "Wind_Direction",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "Wind_Speed_mph",
+        "type": "FLOAT"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "Precipitation_inches",
+        "type": "FLOAT"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "Weather_Condition",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "Amenity",
+        "type": "BOOLEAN"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "Bump",
+        "type": "BOOLEAN"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "Crossing",
+        "type": "BOOLEAN"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "Give_Way",
+        "type": "BOOLEAN"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "Junction",
+        "type": "BOOLEAN"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "No_Exit",
+        "type": "BOOLEAN"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "Railway",
+        "type": "BOOLEAN"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "Roundabout",
+        "type": "BOOLEAN"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "Station",
+        "type": "BOOLEAN"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "Stop",
+        "type": "BOOLEAN"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "Traffic_Calming",
+        "type": "BOOLEAN"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "Traffic_Signal",
+        "type": "BOOLEAN"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "Turning_Loop",
+        "type": "BOOLEAN"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "Sunrise_Sunset",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "Civil_Twilight",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "Nautical_Twilight",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "Astronomical_Twilight",
+        "type": "STRING"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "Start_Date",
+        "type": "DATE"
+    },
+    {
+        "mode": "NULLABLE",
+        "name": "End_Date",
+        "type": "DATE"
+    }
+]

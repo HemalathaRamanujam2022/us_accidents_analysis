@@ -23,6 +23,7 @@ resource "google_compute_instance" "test-machine" {
   boot_disk {
     initialize_params {
       image = var.image
+      size = 30
       labels = {
         }
     }

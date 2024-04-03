@@ -111,6 +111,8 @@ ENV/
 env.bak/
 venv.bak/
 
+!~/mage_orchestration/us_accidents_analysis/.env
+
 # Spyder project settings
 .spyderproject
 .spyproject

@@ -41,7 +41,8 @@ def transform_custom(*args, **kwargs):
     os.system(f"gsutil -o GSUtil:parallel_composite_upload_threshold=150M cp -r data/{data_filename} gs://{gcp_bucket}/raw/")
 
     # Return the location of the kaggle data file to next process
-    return "gs://{gcp_bucket}/raw/{data_filename}"
+    raw_data = "gs://"+ gcp_bucket + "/raw/"+ data_filename
+    return raw_data
     
 @test
 def test_output(output, *args) -> None:

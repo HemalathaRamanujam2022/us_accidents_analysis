@@ -8,7 +8,7 @@ ARG PIP=pip3
 COPY requirements.txt ${USER_CODE_PATH}requirements.txt 
 
 RUN  ${PIP} install -r ${USER_CODE_PATH}requirements.txt
-RUN  ${PIP} install kaggle pyspark
+RUN  ${PIP} install kaggle # not installing pyspark
 
 # The following code is to integrate Spark inside Mage
 # Add Debian Bullseye repository

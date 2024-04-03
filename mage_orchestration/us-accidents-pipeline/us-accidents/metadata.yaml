@@ -12,8 +12,8 @@ spark_config:
   spark_master: local
   executor_env: {}
   spark_jars:
-  - spark-bigquery-latest_2.12.jar
-  - gcs-connector-latest-hadoop2.jar
+  # - spark-bigquery-latest_2.12.jar
+  # - gcs-connector-latest-hadoop2.jar
   spark_home:
   others:
     # spark.executor.memory: 2g

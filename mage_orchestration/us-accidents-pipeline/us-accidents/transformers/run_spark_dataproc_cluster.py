@@ -21,6 +21,8 @@ def transform_custom(*args, **kwargs):
 
     gcp_data_filename = args[0]
     gcp_bucket = os.environ['GCP_BUCKET']
+    # gcp_data_filename = "gs://"+ gcp_bucket +"/raw/"+"US_Accidents_March23.csv"
+    # print("gcp_bucket : ", gcp_bucket)
     key_file = "/home/src/"+os.environ['GOOGLE_APPLICATION_CREDENTIALS']
     auth_key = f'gcloud auth activate-service-account --key-file={key_file}'
     os.system(f'{auth_key}')

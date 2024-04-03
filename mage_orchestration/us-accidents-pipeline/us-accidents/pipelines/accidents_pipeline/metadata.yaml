@@ -30,7 +30,7 @@ blocks:
   language: python
   name: export_to_gcs_with_gcloud
   retry_config: null
-  status: executed
+  status: updated
   timeout: null
   type: custom
   upstream_blocks:
@@ -68,7 +68,7 @@ blocks:
   language: python
   name: export_data_to_bigquery
   retry_config: null
-  status: updated
+  status: executed
   timeout: null
   type: data_exporter
   upstream_blocks:
@@ -94,7 +94,7 @@ blocks:
   language: yaml
   name: load_dbt
   retry_config: null
-  status: updated
+  status: executed
   timeout: null
   type: dbt
   upstream_blocks:
@@ -110,7 +110,7 @@ blocks:
   language: python
   name: process_completed
   retry_config: null
-  status: updated
+  status: executed
   timeout: null
   type: custom
   upstream_blocks:

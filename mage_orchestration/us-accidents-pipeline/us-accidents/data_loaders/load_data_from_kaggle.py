@@ -12,21 +12,23 @@ if 'test' not in globals():
 def load_data_from_api(*args, **kwargs):
     """
     Template for loading data from API
+    
+    This script is used to download the data file from Kaggle to the local machine 
+    under the "/data" folder on the working directory.
     """
 
-    # Uncomment the following code later
-    # dataset_name = 'sobhanmoosavi/us-accidents'
-    # os.system(f'kaggle datasets download -d {dataset_name} -p data')
+    dataset_name = 'sobhanmoosavi/us-accidents'
+    os.system(f'kaggle datasets download -d {dataset_name} -p data')
     # Unzip the downloaded data
-    # csv_file = "data/us-accidents.zip"
-    # os.system(f'unzip {csv_file} -d data')
+    csv_file = "data/us-accidents.zip"
+    os.system(f'unzip -o {csv_file} -d data')
 
-    data_filename = 'data/US_Accidents_March23.csv'
+    data_filename = 'US_Accidents_March23.csv'
     return data_filename
 
-# @test
-# def test_output(output, *args) -> None:
-#     """
-#     Template code for testing the output of the block.
-#     """
-#     assert output is not None, 'The output is undefined'
+@test
+def test_output(output, *args) -> None:
+    """
+    Template code for testing the output of the block.
+    """
+    assert output is not None, 'Loading from Kaggle failed.'

@@ -15,7 +15,40 @@ provider "google" {
 }
 
 
+variable "gcp_service_list" {
+  description ="The list of apis necessary for the project"
+  type = list(string)
+  default = [
+    "cloudresourcemanager.googleapis.com",
+    "serviceusage.googleapis.com",
+    "compute.googleapis.com",
+    "iam.googleapis.com",
+    "dataproc.googleapis.com",
+    "bigquery.googleapis.com"
+  ]
+}
+
+resource "google_project_service" "gcp_services" {
+  for_each = toset(var.gcp_service_list)
+  project = var.project
+  service = each.key
+  disable_on_destroy = false
+}
+
+
+resource "time_sleep" "gcp_wait_crm_api_enabling" {
+  depends_on = [
+    google_project_service.gcp_services
+  ]
+
+  create_duration = "5m"
+}
+
+
 resource "google_compute_instance" "test-machine" {
+  #Waits for the Compute Engine API to be enabled
+  depends_on = [time_sleep.gcp_wait_crm_api_enabling]
+ 
   name         = "us-accidents-test-machine"
   machine_type = var.machine_type
   zone         = var.zone
@@ -35,39 +68,16 @@ resource "google_compute_instance" "test-machine" {
       // Ephemeral public IP
     }
   }
+
+  metadata_startup_script = file("./setup_docker.sh")
 }
 
 
 
-/*
-# Not able to create datproc cluster from terraform. Will have to 
-# do it manually
-resource "google_service_account" "default" {
-  account_id   = "dp-srvc-acct"
-  display_name = "service account for creating dataproc cluster"
-}
+resource "google_dataproc_cluster" "mycluster" {
+  # Waits for the Compute Engine API to be enabled
+  depends_on = [time_sleep.gcp_wait_crm_api_enabling]
 
-resource "google_project_iam_member" "dp_clus_acct_binding" {
-  project = var.project
-  for_each = toset([ 
-          "roles/editor",  
-          "roles/storage.admin",
-          "roles/storage.object.admin",
-          "roles/storage.object.creator",
-          ])
-  role    = each.value
-  member = "serviceAccount:${google_service_account.default.email}"
-}
-
-#resource "google_project_iam_member" "dp_clus_acct_binding" {
-#  project = var.project
-#  role    = "roles/dataproc.editor"
-#  member  = "serviceAccount:${google_service_account.default.email}"
-#}
-
-
-
-resource "google_dataproc_cluster" "dp_clus" {  
   name     = var.dataproc_name
   region   = var.region
   graceful_decommission_timeout = "120s"
@@ -76,10 +86,6 @@ resource "google_dataproc_cluster" "dp_clus" {
     gce_cluster_config {
     zone = var.zone
     internal_ip_only = false
-    #service_account = google_service_account.default.email
-    #service_account_scopes = [
-    #   "cloud-platform"
-    # ]
     }
 
     master_config {
@@ -91,27 +97,39 @@ resource "google_dataproc_cluster" "dp_clus" {
       }
     }
 
-    software_config {
-      image_version = "2.2-debian12"
-      override_properties = {
-        "dataproc:dataproc.allow.zero.workers" = "false"
-      }
+    worker_config {
+      num_instances  = 0
     }
-    
-
+   
     # You can define multiple initialization_action blocks
     initialization_action {
       script      = "gs://dataproc-initialization-actions/stackdriver/stackdriver.sh"
       timeout_sec = 500
     }
   }
+  
+
+}
+
+
+/*
+resource "google_dataproc_cluster" "my_dataproc_cluster" {
+  name     = var.dataproc_name
+  region   = var.region
+  graceful_decommission_timeout = "120s"
+  labels = {
+    goog-dataproc-autozone = "enabled",
+    goog-dataproc-cluster-name = var.dataproc_name,
+    goog-dataproc-location = var.region
+  }
 }
 */
 
-
-
 # For GCS, the location type is Region
 resource "google_storage_bucket" "demo-bucket" {
+
+  depends_on = [time_sleep.gcp_wait_crm_api_enabling]
+
   name          = var.gcs_bucket_name
   location      = var.region
   force_destroy = true
@@ -129,8 +147,16 @@ resource "google_storage_bucket" "demo-bucket" {
 }
 
 resource "google_bigquery_dataset" "demo_dataset" {
+
+  # Waits for the Compute Engine API to be enabled
+  depends_on = [time_sleep.gcp_wait_crm_api_enabling]
+
+
   dataset_id = var.bq_dataset_name
   location   = var.region
+
+  
+
 }
 
 

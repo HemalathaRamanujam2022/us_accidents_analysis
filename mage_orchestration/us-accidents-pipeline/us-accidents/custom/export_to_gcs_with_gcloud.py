@@ -18,13 +18,17 @@ def transform_custom(*args, **kwargs):
 
     Returns:
         Anything (e.g. data frame, dictionary, array, int, str, etc.)
+
+    This script is used to load the US accidents data from the local machine 
+    and upload to GCS bucket by using parllel load parameters on gsutil CP command.
     """
     # Specify your custom logic here
 
+    # We have installed the gcloud application inside the docker image
     os.system(f'gcloud version')
     os.system('pwd')
     
-    key_file = "/home/src/"+os.environ['GCP_SRVC_ACCT_KEY']
+    key_file = "/home/src/"+os.environ['GOOGLE_APPLICATION_CREDENTIALS']
     auth_key = f'gcloud auth activate-service-account --key-file={key_file}'
     os.system(f'{auth_key}')
     gcp_project_id = os.environ['GCP_PROJECT_ID']
@@ -34,15 +38,14 @@ def transform_custom(*args, **kwargs):
     gcp_bucket = os.environ['GCP_BUCKET']
     # Uncomment the parallel statement later
     #os.system(f"gsutil -m cp -r { data_filename } gs://{gcp_bucket}/raw/")
-    # os.system(f"gsutil -o GSUtil:parallel_composite_upload_threshold=150M cp -r { data_filename } gs://{gcp_bucket}/raw/")
+    os.system(f"gsutil -o GSUtil:parallel_composite_upload_threshold=150M cp -r data/{data_filename} gs://{gcp_bucket}/raw/")
 
     # Return the location of the kaggle data file to next process
-    #return"gs://{gcp_bucket}/raw/{data_filename}"
-    return data_filename
-
-# @test
-# def test_output(output, *args) -> None:
-#     """
-#     Template code for testing the output of the block.
-#     """
-#     assert output is not None, 'The output is undefined'
+    return "gs://{gcp_bucket}/raw/{data_filename}"
+    
+@test
+def test_output(output, *args) -> None:
+    """
+    Template code for testing the output of the block.
+    """
+    assert output is not None, 'The data upload to GCS bucket has failed.'

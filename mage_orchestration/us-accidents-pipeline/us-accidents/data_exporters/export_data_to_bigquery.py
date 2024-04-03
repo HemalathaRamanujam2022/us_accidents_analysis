@@ -3,6 +3,7 @@ import os
 from mage_ai.io.file import FileIO
 from pandas import DataFrame
 
+
 if 'data_exporter' not in globals():
     from mage_ai.data_preparation.decorators import data_exporter
 
@@ -15,10 +16,14 @@ def transform_custom(*args,**kwargs):
 
     Returns:
         Anything (e.g. data frame,dictionary,array,int,str,etc.)
+
+    This script is used to create a partitioned and clustered table on Big Query
+    using GCLOUD cli utility and move the data from the paruqet files in GCS to
+    Big Query.
     """
     # Specify your custom logic here
 
-    key_file = "/home/src/"+os.environ['GCP_SRVC_ACCT_KEY']
+    key_file = "/home/src/"+os.environ['GOOGLE_APPLICATION_CREDENTIALS']
     auth_key = f'gcloud auth activate-service-account --key-file={key_file}'
     os.system(f'{auth_key}')
     gcp_project_id = os.environ['GCP_PROJECT_ID']
@@ -52,4 +57,4 @@ def test_output(output,*args) -> None:
     """
     Template code for testing the output of the block.
     """
-    assert output is not None,'The output is undefined'
+    assert output is not None,'The load into Big Query failed.'

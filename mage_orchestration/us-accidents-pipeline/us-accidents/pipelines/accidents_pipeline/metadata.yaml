@@ -12,12 +12,12 @@ blocks:
   language: python
   name: load_data_from_kaggle
   retry_config: null
-  status: executed
+  status: updated
   timeout: null
   type: data_loader
   upstream_blocks: []
   uuid: load_data_from_kaggle
-- all_upstream_blocks_executed: true
+- all_upstream_blocks_executed: false
   color: teal
   configuration:
     file_source:
@@ -36,7 +36,7 @@ blocks:
   upstream_blocks:
   - load_data_from_kaggle
   uuid: export_to_gcs_with_gcloud
-- all_upstream_blocks_executed: true
+- all_upstream_blocks_executed: false
   color: null
   configuration:
     file_source:
@@ -49,31 +49,32 @@ blocks:
   language: python
   name: run_spark_dataproc_cluster
   retry_config: null
-  status: executed
+  status: updated
   timeout: null
   type: transformer
   upstream_blocks:
   - export_to_gcs_with_gcloud
   uuid: run_spark_dataproc_cluster
-- all_upstream_blocks_executed: true
+- all_upstream_blocks_executed: false
   color: null
   configuration:
     file_source:
       path: data_exporters/export_data_to_bigquery.py
-  downstream_blocks: []
+  downstream_blocks:
+  - load_dbt
   executor_config: null
   executor_type: local_python
   has_callback: false
   language: python
   name: export_data_to_bigquery
   retry_config: null
-  status: executed
+  status: updated
   timeout: null
   type: data_exporter
   upstream_blocks:
   - run_spark_dataproc_cluster
   uuid: export_data_to_bigquery
-- all_upstream_blocks_executed: true
+- all_upstream_blocks_executed: false
   color: null
   configuration:
     dbt:
@@ -85,7 +86,8 @@ blocks:
     file_source:
       path: dbts/load_dbt.yaml
     use_raw_sql: false
-  downstream_blocks: []
+  downstream_blocks:
+  - process_completed
   executor_config: null
   executor_type: local_python
   has_callback: false
@@ -95,8 +97,25 @@ blocks:
   status: updated
   timeout: null
   type: dbt
-  upstream_blocks: []
+  upstream_blocks:
+  - export_data_to_bigquery
   uuid: load_dbt
+- all_upstream_blocks_executed: false
+  color: blue
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: process_completed
+  retry_config: null
+  status: updated
+  timeout: null
+  type: custom
+  upstream_blocks:
+  - load_dbt
+  uuid: process_completed
 cache_block_output_in_memory: false
 callbacks: []
 concurrency_config: {}

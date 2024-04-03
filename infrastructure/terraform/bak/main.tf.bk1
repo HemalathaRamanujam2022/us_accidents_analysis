@@ -1,0 +1,126 @@
+terraform {
+  required_providers {
+    google = {
+      source  = "hashicorp/google"
+      version = "5.6.0"
+    }
+  }
+}
+
+provider "google" {
+  credentials = file(var.credentials)
+  project     = var.project
+  region      = var.region
+  zone        = var.zone
+}
+
+# Create the service account, service account key and associated roles for
+# the service account and google user accounts
+
+resource "google_service_account" "srvc_acc" {
+  project      = var.project
+  account_id   = var.service_account_id
+  display_name = "US accidents service account"
+
+}
+
+resource "google_service_account_key" "srvc_acc_key" {
+  service_account_id = google_service_account.srvc_acc.name
+}
+
+resource "google_project_iam_member" "srvc_acc_iam" {
+  for_each = toset(var.roles)
+
+  project = var.project
+  role    = each.value
+  member  = "serviceAccount:${google_service_account.srvc_acc.email}" 
+}
+
+# We will also assign roles to the Google gmail user which
+# may be needed to access Google Looker Studio
+resource "google_project_iam_member" "iam_binding_user" {
+  project = var.project
+  for_each = toset([ "roles/bigquery.user",  "roles/owner"])
+  role    = each.value
+  member = "user:var.email"
+}
+
+# Create a VM machine on the GCP (Google compute engine)
+# We can do this via SSH to the VM
+resource "google_compute_instance" "test-machine" {
+
+  name         = "us-accidents-test-machine"
+  machine_type = var.machine_type
+  #zone         = var.zone
+  tags         = ["allow-all"]
+  boot_disk {
+    initialize_params {
+      image = var.image
+    }
+  }
+  network_interface {
+    network = "default"
+    access_config {
+
+    }
+  }
+}
+
+resource "null_resource" "test-machine-setup" {
+  provisioner "remote-exec" {
+    connection {
+      type        = "ssh"
+      user        = var.user
+      host        = google_compute_instance.test-machine.network_interface[0].access_config[0].nat_ip
+      private_key = file(var.privatekeypath)
+    }
+    inline = [
+      "chmod +x /tmp/setup.sh",
+      "sudo sed -i -e 's/\r$//' /tmp/setup.sh", # Remove the spurious CR characters.
+      "sudo /tmp/setup.sh",
+    ]
+  }
+
+  provisioner "local-exec" {
+    command = "chrome ${google_compute_instance.test-machine.network_interface[0].access_config[0].nat_ip}"
+  }
+
+}
+
+
+resource "google_dataproc_cluster" "my_dataproc_cluster" {
+  name     = var.dataproc_name
+  region   = var.region
+  graceful_decommission_timeout = "120s"
+  labels = {
+    goog-dataproc-autozone = "enabled",
+    goog-dataproc-cluster-name = var.dataproc_name,
+    goog-dataproc-location = var.region
+  }
+}
+
+# For GCS, the location type is Region
+resource "google_storage_bucket" "demo-bucket" {
+  name          = var.gcs_bucket_name
+  location      = var.region
+  force_destroy = true
+
+
+  lifecycle_rule {
+    condition {
+      age = 90
+    }
+    action {
+      type = "AbortIncompleteMultipartUpload"
+    }
+  }
+}
+
+resource "google_bigquery_dataset" "demo_dataset" {
+  dataset_id = var.bq_dataset_name
+  location   = var.region
+}
+
+
+
+

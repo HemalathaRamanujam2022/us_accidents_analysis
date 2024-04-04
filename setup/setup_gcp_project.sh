@@ -80,6 +80,10 @@ gcloud projects add-iam-policy-binding $PROJECT_ID \
   --member="serviceAccount:$SERVICE_ACCOUNT_NAME@$PROJECT_ID.iam.gserviceaccount.com" \
   --role="roles/iam.serviceAccountDeleter"
 
+gcloud projects add-iam-policy-binding $PROJECT_ID \
+  --member="serviceAccount:$SERVICE_ACCOUNT_NAME@$PROJECT_ID.iam.gserviceaccount.com" \
+  --role="roles/iam.serviceAccountTokenCreator"
+
 # We will enable all the google APIs needed for the various resources
 # to be created on GCP like Big Query, Dataproc cluster, Google compute engine,
 # Google cloud storage etc.

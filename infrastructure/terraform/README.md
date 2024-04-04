@@ -59,7 +59,7 @@ pipeline, please stop the VM instance ("us-accidents-test-machine") on
 the GCP console, so that you do not incur charges. You can start it just
 before running the Mage orchestration job on the GCP VM machine.
 
-## <ins>Create Dataproc cluster</ins>>
+## <ins>Create Dataproc cluster</ins>
 We also need to create a Google "Dataproc" cluster on the compute engine
 to run the "Pyspark" job which will be executed from the Mage docker container.
 Follow the instructions given below to create a "Dataproc" cluster on the

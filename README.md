@@ -114,8 +114,7 @@ Machine running Linux/Ubuntu/Mac OS with minimum of 8 GB RAM.
 
 -   An active user account on GCP
 
--   User account on Kaggle with access token to download Kaggle
-    dataset
+-   User account on Kaggle with access token to download datasets
 
 -   "gloud-sdk" tool if running the project on the local machine
 

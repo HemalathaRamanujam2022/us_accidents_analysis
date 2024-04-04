@@ -60,7 +60,7 @@ cd ~/us_accidents_analysis/mage_orchestration/us-accidents-pipeline
 sudo chmod 600 ./.kaggle/Kaggle.json
 ```
  
-## <ins>Copy the GCP service account keys from the local machine</ins>
+## <ins>Copy the GCP service account key from the local machine</ins>
 
 You also need to move the Google service account credentials we created
 during the setup process to the VM if you are running the orchestration

@@ -14,7 +14,7 @@ console. Once you are logged into the VM, you need to download the
 project folder into the VM using "git clone".
 Note: If you are using your local machine (WSL2 on Windows or other OS), you do not need to clone the project as you would have 
 already done so during the setup stage. It is advised to run the orchestrator on GCP VM for faster performance and better CPU 
-and memory capabilities. Refer to the "README.md" file under [setup folder](/setup) for git clone instructions.
+and memory capabilities. Refer to the "README.md" file under [setup](/setup) for git clone instructions.
 
 ## <ins>Install Docker</ins>
 
@@ -51,7 +51,7 @@ download datasets from Kaggle using the settings of your Kaggle account.
 
 You can upload your Kaggle and GCP service account keys using the
 "UPLOAD FILE" feature on the GCP SSH connection. The file will be
-downloaded into the user \$HOME folder. Copy the file from the \$HOME
+downloaded into the user $HOME folder. Copy the file from the $HOME
 folder into the project repository as below.
  
 ```
@@ -68,10 +68,12 @@ there. Follow the same procedure to upload that service account access
 key JSON file into the VM as you did for the Kaggle account.
  
 ```
-mv <DOWNLOADED_SERVICE_ACCOUNT_KEY.json> ~/us_accidents_analysis/.keys/us_accidents_srvc_acct.json
+sudo mv <DOWNLOADED_SERVICE_ACCOUNT_KEY.json> ~/us_accidents_analysis/.keys/us_accidents_srvc_acct.json
+cd ~/us_accidents_analysis/mage_orchestration/us-accidents-pipeline
+sudo chmod 600 ./.keys/us_accidents_srvc_acct.json
 ```
  
-## <ins>*Build and run docker containers</ins>
+## <ins>Build and run docker containers for Mage</ins>
 
 Now we need to build the docker images to run the pipeline. Change
 directory to the orchestration folder and execute the commands as
@@ -89,7 +91,7 @@ the command.
  docker compose up -d
 ```
 Then run the following command to check that the containers are up and
-running using the command
+running using the command.
 ```
 docker ps
 ```
@@ -103,14 +105,14 @@ filters (0.0.0.0/0). For this you need to choose the "VPC firewall"
 policy on the search tab and add a new network firewall rule. Refer to
 the picture here -- XXXX to see the settings.
 
-7.  Ensure that Dataproc cluster is started.
+Ensure that Dataproc cluster is started.
 
-8.  ## <ins>Run the Mage ETL pipeline on the browser</ins>
+## <ins>Run the Mage ETL pipeline on the browser</ins>
 
--   Connect to Mage on the browser using the url -- .
+-   Connect to Mage on the browser using the url -- http://<EXTERNAL-IP-OF-GCE>:6789 . 
 
 -   On the Mage terminal, run the following command under the "dbt"
-    folder to check if DBT files are installed properl.
+    folder to check if DBT files are installed properly.
     ```
     dbt deps
     dbt debg    
@@ -123,5 +125,4 @@ the picture here -- XXXX to see the settings.
 -   The pipeline process downloads the accidents data from Kaggle,
     exports the raw file into GCS in .csv and parquet formats, extracts
     and stages the raw data, transforms and loads the data into
-    partitioned fact tables and summary tables (dimensions and measures)
-    in Big Query datasets.
+    partitioned fact and summary tables (dimensions and measures) in BigQuery.

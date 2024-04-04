@@ -136,7 +136,7 @@ Environment setup
 -   Go to the [setup](setup/README.md) folder. Follow the instructions under "ReadMe" section on that page.
 
 Terraform
--   Follow the instructions on this page "terraform" and execute all the steps.
+-   Follow the instructions on this page [terraform](infrastructure/terraform) and execute all the steps.
 
 Orchestration and Data transformation
 -   Follow the instructions on this page "mage" and execute all the steps.

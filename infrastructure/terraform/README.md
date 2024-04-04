@@ -63,7 +63,7 @@ before running the Mage orchestration job on the GCP VM machine.
 We also need to create a Google "Dataproc" cluster on the compute engine
 to run the "Pyspark" job which will be executed from the Mage docker container.
 Follow the instructions given below to create a "Dataproc" cluster on the
-GCP console. You can find the screenshots [here](static/mage/Dataproc_steps.pdf) .
+GCP console. You can find the screenshots [here](/static/mage/Dataproc_steps.pdf) .
 
 1.  Add the following roles to the principal which will have principal name as
     <XXXXXXXXXXXX-compute@developer.gserviceaccount.com> where X stands for a digit.

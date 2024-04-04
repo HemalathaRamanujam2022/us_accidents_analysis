@@ -116,7 +116,7 @@ transforming and exporting the data from staging to production datasets.
 
 Machine running Linux/Ubuntu OS with minimum of 8 GB RAM.
 
-Terraform
+-   Terraform
 
 -   Docker
 
@@ -129,8 +129,7 @@ Terraform
 
 -   GitHub account to download the project repository
 
-## <ins>Setup and steps to run the ETL pipeline and generate
-dashboard</ins>
+## <ins>Setup and steps to run the ETL pipeline and generate dashboard</ins>
 
 The project can be run either locally on your machine (Linux or Windows
 or Mac OS) or on the GCP VM. I had tested the code on WSL2 (Windows

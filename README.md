@@ -165,6 +165,7 @@ deployed resources on the GM instance.
 
 ![Dashboard](static/looker/US%20accident%20analysis%20screenshot.png)
 [Publicly accessible dashboard](https://lookerstudio.google.com/reporting/1d09c9e5-cfbd-43de-a674-54d0becddb29) 
+
 Some of the insights we derive from the dashboard are:
 
 -   The number of accidents seem to be increasing every year with a

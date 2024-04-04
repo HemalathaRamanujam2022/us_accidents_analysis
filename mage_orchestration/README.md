@@ -47,7 +47,8 @@ not have Kaggle account, please create one from the following link. -
 https://www.kaggle.com
 
 Once you register, you can generate an access key (access token) to
-download datasets from Kaggle using the settings of your Kaggle account.
+download datasets from Kaggle using the settings of your Kaggle account as shown here -
+(static/mage/kaggle_firewall_setup.pdf)
 
 You can upload your Kaggle and GCP service account keys using the
 "UPLOAD FILE" feature on the GCP SSH connection. The file will be

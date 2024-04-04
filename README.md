@@ -44,17 +44,17 @@ The following are some of the few insights and trends that can be
 deciphered from the analyzed data.
 
 -   Top states, cities, highways with the highest number of accidents by
-    severity
+    severity.
 
--   The time of the day and week when these accidents occur
+-   The time of the day and week when these accidents occur.
 
 -   The contribution of weather and environment factors to these
-    accidents
+    accidents.
 
 -   The amenities and other point of interest that are available on the
-    impacted highways
+    impacted highways.
 
--   The growth / decline of accidents across geography over the years
+-   The growth / decline of accidents across geography over the years.
 
 ## <ins>Dataset Used</ins>
 
@@ -77,22 +77,22 @@ Source URL : <https://smoosavi.org/datasets/us_accidents> 
 1.  Google Cloud platform - GCP
 
 -   Google loud storage (GCS) to hold the raw data and parquet files and
-    serve as data lake
+    serve as data lake.
 
 -   Google big query data warehouse (DW) with datasets to hold the data
-    warehouse tables and views
+    warehouse tables and views.
 
 -   Google compute engine (GCE) for improved performance and reliability
-    of the ETL pipeline
+    of the ETL pipeline.
 
 -   Google Looker Studio for publishing the reports visualized using
     data from the DW.
 
--   Dataproc cluster inside GCP to run the Pyspark job
+-   Dataproc cluster inside GCP to run the Pyspark job.
 
 2.  Terraform ( https://www.terraform.io/ ) Infrastructure as a Code
     tool was used for creating the GCP resources to add human error and
-    improve deployment operations
+    improve deployment operations.
 
 3.  Mage.ai ( <https://www.mage.ai/> ) as the workflow orchestration
     tool for the data.
@@ -106,7 +106,7 @@ transforming and exporting the data from staging to production datasets.
 
 ## <ins>Pre-requisites for running the project</ins>
 
-Machine running Linux/Ubuntu OS with minimum of 8 GB RAM.
+Machine running Linux/Ubuntu/Mac OS with minimum of 8 GB RAM.
 
 -   Terraform
 
@@ -114,7 +114,7 @@ Machine running Linux/Ubuntu OS with minimum of 8 GB RAM.
 
 -   An active user account on GCP
 
--   Active account on Kaggle with access token to download Kaggle
+-   User account on Kaggle with access token to download Kaggle
     dataset
 
 -   "gloud-sdk" tool if running the project on the local machine

@@ -132,22 +132,17 @@ how to install WSL2 for Linux, use the following link.
 
 ## <ins>Project setup</ins>
 
-Go to the [Setup](setup/README.md) folder. Follow the instructions under "ReadMe" section
-on that page.
+Environment setup
+-   Go to the [setup](setup/README.md) folder. Follow the instructions under "ReadMe" section on that page.
 
-> **Terraform**
->
-> Follow the instructions on this page "terraform" and execute all the
-> steps.
->
-> **Orchestration and Data transformation**
->
-> Follow the instructions on this page "mage" and execute all the steps.
->
-> **Data visualization**
->
-> Follow the instructions under the "Visualization" folder and execute
-> all the steps.
+Terraform
+-   Follow the instructions on this page "terraform" and execute all the steps.
+
+Orchestration and Data transformation
+-   Follow the instructions on this page "mage" and execute all the steps.
+
+Data visualization
+-   Follow the instructions under the "visualization" folder and execute all the steps.
 
 ## <ins>Clean up</ins>
 
@@ -181,7 +176,7 @@ Some of the insights we derive from the dashboard are:
     highway I-95N the most accident prone.
 
 -   Even though most accidents happen during clear weather, cloudy
-    conditions come close at the second place.
+    conditions come a close second.
 
 ## <ins>Acknowledgements</ins>
 

@@ -103,7 +103,7 @@ Configure the network firewall policy to allow incoming (ingress)
 traffic on port "6789" and allow all IP address ranges on it as source
 filters (0.0.0.0/0). For this you need to choose the "VPC firewall"
 policy on the search tab and add a new network firewall rule. Refer to
-the picture here -- XXXX to see the settings.
+the picture [here](static/mage/kaggle_firewall_setup.pdf) to see the settings.
 
 Ensure that Dataproc cluster is started.
 

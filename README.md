@@ -138,10 +138,12 @@ Terraform
 -   Follow the instructions on this page [terraform](infrastructure/terraform) and execute all the steps.
 
 Orchestration and Data transformation
--   Follow the instructions on this page "mage" and execute all the steps.
+-   Follow the instructions on this page [mage](mage_orchestration) and execute all the steps.
 
 Data visualization
--   Follow the instructions under the "visualization" folder and execute all the steps.
+-   You can use your GCP gmail ID to connect to the Biguery tables using Google Looker Studio. The report I built can be
+    accessed [here](https://lookerstudio.google.com/reporting/1d09c9e5-cfbd-43de-a674-54d0becddb29) . The report was created using the
+    GCP free trial account which will expire by mid April, 2024 and will not be available after that.
 
 ## <ins>Clean up</ins>
 
@@ -162,7 +164,7 @@ deployed resources on the GM instance.
 ## <ins>Dashboard</ins>
 
 ![Dashboard](static/looker/US%20accident%20analysis%20screenshot.png)
-
+[Publicly accessible dashboard](https://lookerstudio.google.com/reporting/1d09c9e5-cfbd-43de-a674-54d0becddb29) 
 Some of the insights we derive from the dashboard are:
 
 -   The number of accidents seem to be increasing every year with a

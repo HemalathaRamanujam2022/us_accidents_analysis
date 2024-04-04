@@ -115,7 +115,7 @@ Ensure that Dataproc cluster is started.
     folder to check if DBT files are installed properly.
     ```
     dbt deps
-    dbt debg    
+    dbt debug    
     ```
 -   Trigger the pipeline "accidents_pipeline" using the "Triggers"
     option from the Mage UI. Monitor the process and resolve if any

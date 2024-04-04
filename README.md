@@ -132,7 +132,7 @@ how to install WSL2 for Linux, use the following link.
 
 ## <ins>Project setup</ins>
 
-Go to the setup folder. Follow the instructions under "ReadMe" section
+Go to the [Setup](setup/README.md) folder. Follow the instructions under "ReadMe" section
 on that page.
 
 > **Terraform**

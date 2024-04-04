@@ -167,11 +167,7 @@ deployed resources on the GM instance.
 
 ## <ins>Dashboard</ins>
 
-
-
-
-
-
+![Dashboard](static/looker/US%20accident%20analysis%20screenshot.png)
 
 Some of the insights we derive from the dashboard are:
 

@@ -2,7 +2,7 @@
     This macro returns the description of the payment_type 
 #}
 
-{% macro get_severity_codes_description(payment_type) -%}
+{% macro get_severity_codes_description(severity_code) -%}
 
     case {{ dbt.safe_cast("Severity", api.Column.translate_type("integer")) }}  
         when 1 then 'Short delay / Least impact on traffic'

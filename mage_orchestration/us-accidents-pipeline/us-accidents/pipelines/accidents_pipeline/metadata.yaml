@@ -94,7 +94,7 @@ blocks:
   language: yaml
   name: load_dbt
   retry_config: null
-  status: executed
+  status: failed
   timeout: null
   type: dbt
   upstream_blocks:

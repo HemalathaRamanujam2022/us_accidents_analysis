@@ -2,10 +2,12 @@ version: 2
 
 sources: 
   - name: staging
-    database: mage-demo-412904
+    # database: mage-demo-412904
+    database: "{{ env_var('GCP_PROJECT_ID') }}"
      # For postgres:
       #database: production
-    schema: us_accidents_2016_2023
+    # schema: us_accidents_2016_2023
+    schema: "{{ env_var('DBT_DATASET_BQ') }}" 
 
       # loaded_at_field: record_loaded_at
     tables:

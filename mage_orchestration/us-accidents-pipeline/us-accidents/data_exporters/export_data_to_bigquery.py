@@ -50,6 +50,7 @@ def transform_custom(*args,**kwargs):
 
     gcp_bucket = os.environ['GCP_BUCKET']
     os.system(f"bq load \
+                --replace=true \
                 --source_format=PARQUET  \
                 {bq_ds}.accidents_data \
                 gs://{gcp_bucket}/pq/Start_Year_Month*")

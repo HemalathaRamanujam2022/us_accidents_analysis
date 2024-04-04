@@ -102,15 +102,7 @@ modelling the tables and views used in the data warehouse and also for
 transforming and exporting the data from staging to production datasets.
 
 ## <ins>Architecture</ins>
-
-
-
-
-
-
-
-
-
+[Architecture Diagram](static/architecture/Accidents%20pipeline%20architecture%20diagram.png)
 
 ## <ins>Pre-requisites for running the project</ins>
 

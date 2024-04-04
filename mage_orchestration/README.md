@@ -47,7 +47,7 @@ not have Kaggle account, please create one from the following link. -
 https://www.kaggle.com
 
 Once you register, you can generate an access key (access token) to
-download datasets from Kaggle using the settings of your Kaggle account as shown [here](static/mage/kaggle_firewall_setup.pdf) .
+download datasets from Kaggle using the settings of your Kaggle account as shown [here](/static/mage/kaggle_firewall_setup.pdf) .
 
 You can upload your Kaggle and GCP service account keys using the
 "UPLOAD FILE" feature on the GCP SSH connection. The file will be
@@ -103,7 +103,7 @@ Configure the network firewall policy to allow incoming (ingress)
 traffic on port "6789" and allow all IP address ranges on it as source
 filters (0.0.0.0/0). For this you need to choose the "VPC firewall"
 policy on the search tab and add a new network firewall rule. Refer to
-the picture [here](static/mage/kaggle_firewall_setup.pdf) to see the settings.
+the picture [here](/static/mage/kaggle_firewall_setup.pdf) to see the settings.
 
 Ensure that Dataproc cluster is started.
 

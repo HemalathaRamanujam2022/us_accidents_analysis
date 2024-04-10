@@ -31,12 +31,12 @@ This has many benefits like
     can design alternative highways to ease the traffic.
 
 -   The traffic control department can use this data to predict delays
-    on certain highways base on past incidents and possibly deploy more
+    on certain highways based on past incidents and possibly deploy more
     patrol cars on accident prone highways.
 
--   Natural Language Processing ML algorithms can be used on the human
+-   Natural Language Processing ML algorithms can be used on the human-
     coded accident description field to extract more patterns on the
-    data.
+    nature of the accident.
 
 ## <ins>Analytics</ins>
 
@@ -46,15 +46,15 @@ deciphered from the analyzed data.
 -   Top states, cities, highways with the highest number of accidents by
     severity.
 
--   The time of the day and week when these accidents occur.
+-   The time of the day and week when these accidents occured.
 
--   The contribution of weather and environment factors to these
+-   The contribution of weather and environmental factors to these
     accidents.
 
 -   The amenities and other point of interest that are available on the
     impacted highways.
 
--   The growth / decline of accidents across geography over the years.
+-   The growth / decline in number of accidents across geography over the years.
 
 ## <ins>Dataset Used</ins>
 
@@ -66,7 +66,7 @@ events captured by a variety of entities, such as the US and state
 departments of transportation, law enforcement agencies, traffic
 cameras, and traffic sensors within the road-networks. Currently, there
 are about 7.73 million accident records in this dataset captured until
-March 2023. Check the below descriptions for more detailed information.
+March 2023. Check the link below for more detailed information.
 
 Source URL : <https://smoosavi.org/datasets/us_accidents> 
 
@@ -76,7 +76,7 @@ Source URL : <https://smoosavi.org/datasets/us_accidents> 
 
 1.  Google Cloud platform - GCP
 
--   Google loud storage (GCS) to hold the raw data and parquet files and
+-   Google cloud storage (GCS) to hold the raw data and parquet files and
     serve as data lake.
 
 -   Google big query data warehouse (DW) with datasets to hold the data
@@ -88,10 +88,10 @@ Source URL : <https://smoosavi.org/datasets/us_accidents> 
 -   Google Looker Studio for publishing the reports visualized using
     data from the DW.
 
--   Dataproc cluster inside GCP to run the Pyspark job.
+-   Dataproc cluster inside GCP to run the PySpark job.
 
 2.  Terraform ( https://www.terraform.io/ ) Infrastructure as a Code
-    tool was used for creating the GCP resources to add human error and
+    tool was used for creating the GCP resources to avoid human error and
     improve deployment operations.
 
 3.  Mage.ai ( <https://www.mage.ai/> ) as the workflow orchestration
@@ -116,16 +116,16 @@ Machine running Linux/Ubuntu/Mac OS with minimum of 8 GB RAM.
 
 -   User account on Kaggle with access token to download datasets
 
--   "gloud-sdk" tool if running the project on the local machine
+-   "gcloud-sdk" tool if running the project on the local machine. gcloud-sdk is pre-installed on GCP VM.
 
 -   GitHub account to download the project repository
 
 ## <ins>Setup and steps to run the ETL pipeline and generate dashboard</ins>
 
 The project can be run either locally on your machine (Linux or Windows
-or Mac OS) or on the GCP VM. I had tested the code on WSL2 (Windows
-Subsystem for Linux 2) on Windows 11 machine. For more information on
-how to install WSL2 for Linux, use the following link.
+or Mac OS) or on the GCP VM. I had tested the setup code on WSL2 (Windows
+Subsystem for Linux 2) on Windows 11 machine and ran the Mage dockerized container
+on GCP VM. For more information on how to install WSL2 for Linux, use the following link.
 
 <https://learn.microsoft.com/en-us/windows/wsl/install>
 

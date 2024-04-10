@@ -190,7 +190,7 @@ Instructor credits -- The amazing team of <https://datatalks.club/> led
 by Alexey Grigorev.
 
 I thank them for their thoughtful compilation and delivery of this
-course to inspire and educate data enthusiasts interested in latest
-technologies data engineering. I thank them profusely for offering
+course to inspire and educate data enthusiasts interested in the latest
+technologies in Data Engineering. I thank them profusely for offering
 support and guidance throughout the course.
 

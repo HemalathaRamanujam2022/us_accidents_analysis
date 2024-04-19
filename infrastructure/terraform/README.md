@@ -37,7 +37,7 @@ the above folder.
 
 -  "zone" -- Set it to the region you want to create the VM in
 
--  "GCS bucket name" -- Since bucket names are global, choose a name that is unique and not been used before. 
+-  "gcs_bucket_name" -- Since bucket names are global, choose a name that is unique and not been used before. 
   
 Note: I tested the project with the following parameters for region and zone  -
 "asia-south1" and "asia-south1-a" respectively.

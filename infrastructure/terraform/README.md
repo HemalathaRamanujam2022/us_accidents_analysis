@@ -37,8 +37,8 @@ the above folder.
 
 -  "zone" -- Set it to the region you want to create the VM in
   
-Note: I tested the project with the following parameters for region and zone respectively -
-asia-south1" and "asia-south1-a" .
+Note: I tested the project with the following parameters for region and zone  -
+"asia-south1" and "asia-south1-a" respectively.
 
 Run the following commands in order and verify the outputs. The Terraform scripts will plan and create a 
 GCP GCE instance (us-accidents-test-machine), a BigQuery dataset (us_accidents_bq) and a GCS bucket (us_accidents_gs) in

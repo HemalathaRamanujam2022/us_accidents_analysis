@@ -148,6 +148,10 @@ Orchestration and Data transformation
 
     ![Trigger](https://github.com/HemalathaRamanujam2022/us_accidents_analysis/blob/main/static/mage/Mage%20-%20Trigger%20-%20ETL%20pipeline.png)
 
+    The DBT processes to extract the raw data and populate the staging and production BigQuery datasets are depicted on the lineage graph as below.
+
+    ![Lineage Graph](https://github.com/HemalathaRamanujam2022/us_accidents_analysis/blob/main/static/dbt/lineage_graph.jpg)
+
 
 Data visualization
 -   You can use your GCP gmail ID to connect to the Biguery tables using Google Looker Studio. The report I built can be

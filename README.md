@@ -139,7 +139,9 @@ Terraform
 
 Orchestration and Data transformation
 -   Follow the instructions on this page [mage](mage_orchestration) and execute all the steps.
-    The tree diagram for the various steps in the ETL pipeline is shown ![here](https://github.com/HemalathaRamanujam2022/us_accidents_analysis/blob/main/static/mage/Mage%20-%20ETL%20pipeline%20-%20Tree%20diagram.png) .
+    The tree diagram for the various steps in the ETL pipeline is shown below.
+
+    ![here](https://github.com/HemalathaRamanujam2022/us_accidents_analysis/blob/main/static/mage/Mage%20-%20ETL%20pipeline%20-%20Tree%20diagram.png) .
 
     The ETL pipeline can be triggered from Mage "Launch Command Center" screen by clicking the option "Run@once" on the ETL pipeline as
     shown below.

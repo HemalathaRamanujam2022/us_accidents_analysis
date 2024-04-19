@@ -22,7 +22,7 @@ services:
     volumes:
       - .:/home/src/
       # - ~/Documents/secrets/personal-gcp.json:/home/src/personal-gcp.json
-      - ~/us_accidents_analysis/.keys:/home/src/.config/gcloud/
+      - ../../../us_accidents_analysis/.keys:/home/src/.config/gcloud/
     restart: on-failure:5
   postgres:
     image: postgres:14

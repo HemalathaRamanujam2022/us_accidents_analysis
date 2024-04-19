@@ -10,7 +10,7 @@ variable "project" {
                  This is the GCP project used to do analysis on traffic \
                  accidents data across all US states from Feb 2016 - March 2023
                  EOT
-  default     = "project-pipeline-hrmnjm"
+  default     = "accidents-pipeline-hrmnjm"
 }
 
 variable "region" {
@@ -52,7 +52,7 @@ variable "bq_dataset_name" {
 variable "gcs_bucket_name" {
   description = "US accidents GCS bucket name"
   #Update the below to a unique bucket name
-  default     = "us_accidents_gs"
+  default     = "us_accidents_gs1"
 }
 
 variable "gcs_storage_class" {

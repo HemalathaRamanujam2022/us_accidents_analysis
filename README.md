@@ -138,7 +138,8 @@ Terraform
 -   Follow the instructions on this page [terraform](infrastructure/terraform) and execute all the steps.
 
 Orchestration and Data transformation
--   Follow the instructions on this page [mage](mage_orchestration) and execute all the steps.
+-   Follow the instructions on this page [mage](mage_orchestration) and execute all the steps. The tree diagram
+    for the various steps in the ETL pipeline is shown [here](https://github.com/HemalathaRamanujam2022/us_accidents_analysis/blob/main/static/mage/Mage%20-%20ETL%20pipeline%20-%20Tree%20diagram.png) .
 
 Data visualization
 -   You can use your GCP gmail ID to connect to the Biguery tables using Google Looker Studio. The report I built can be

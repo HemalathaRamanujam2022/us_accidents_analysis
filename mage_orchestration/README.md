@@ -75,6 +75,13 @@ sudo chmod 600 ./.keys/us_accidents_srvc_acct.json
  
 ## <ins>Build and run docker containers for Mage</ins>
 
+Edit the environment file (.env) under the Mage folder and update the following parameters as needed.
+GCP_PROJECT_ID
+GCP_BUCKET
+GCP_REGION
+DBT_DATASET_REGION
+DBT_DATASET_LOCATION
+
 Now we need to build the docker images to run the pipeline. Change
 directory to the orchestration folder and execute the commands as
 given.

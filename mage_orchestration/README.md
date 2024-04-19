@@ -123,6 +123,6 @@ Ensure that Dataproc cluster is started.
     will show as "completed" or "failed".
 
 -   The pipeline process downloads the accidents data from Kaggle,
-    exports the raw file into GCS in .csv and parquet formats, extracts
-    and stages the raw data, transforms and loads the data into
+    exports the raw file into GCS in .csv and parquet formats, using DBT integrated into
+    Mage, extracts and stages the raw data, transforms and loads the data into
     partitioned fact and summary tables (dimensions and measures) in BigQuery.

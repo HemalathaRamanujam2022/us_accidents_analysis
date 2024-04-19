@@ -47,6 +47,10 @@ folder is added to the PATH system variable.
     account (<YOUR_GCP_EMAIL_ID>) and the project ID that was created
     in the earlier step.
 
+    Note : If there exists a configuration already, please choose "[1] Re-initialize this configuration [default] with new settings"
+    to reinitialize and choose "Login in with a new account" . It will output an URL and paste that URL on your Google Chrome browser
+    to activate gcloud for the account.
+
 > ```
 >
 > gcloud init

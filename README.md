@@ -143,7 +143,8 @@ Orchestration and Data transformation
 Data visualization
 -   You can use your GCP gmail ID to connect to the Biguery tables using Google Looker Studio. The report I built can be
     accessed [here](https://lookerstudio.google.com/reporting/1d09c9e5-cfbd-43de-a674-54d0becddb29) . The report was created using the
-    GCP free trial account which will expire by mid April, 2024 and will not be available after that.
+    GCP free trial account which will expire by mid April, 2024 and will not be available after that. For a static version of the dashboard,
+    please refer [here]() . 
 
 ## <ins>Clean up</ins>
 

@@ -1,6 +1,6 @@
 variable "credentials" {
   description = "US Accidents Analysis Project Credentials"
-  default     = "~/us_accidents_analysis/.keys/us_accidents_srvc_acct.json"
+  default     = "../../../us_accidents_analysis/.keys/us_accidents_srvc_acct.json"
   #ex: if you have a directory where this file is called keys with your service account json file
   #saved there as my-creds.json you could use default = "./keys/my-creds.json"
 }

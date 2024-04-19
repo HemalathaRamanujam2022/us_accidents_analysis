@@ -121,7 +121,7 @@ Ensure that Dataproc cluster is started.
 
 ## <ins>Run the Mage ETL pipeline on the browser</ins>
 
--   Connect to Mage on the browser using the url -- http://<EXTERNAL-IP-OF-GCE>:6789 . 
+-   Connect to Mage on the browser using the url -- http://EXTERNAL-IP-OF-GCE:6789 . 
 
 -   On the Mage terminal, run the following command under the "dbt"
     folder to check if DBT files are installed properly.

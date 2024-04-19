@@ -161,6 +161,8 @@ deployed resources on the GM instance.
 
 4.  Delete the project repository from the local machine.
 
+5.  Close the billing account linked to the project to stop any additional charge.
+   
 ## <ins>Dashboard</ins>
 
 ![Dashboard](static/looker/US%20accident%20analysis%20screenshot.png)

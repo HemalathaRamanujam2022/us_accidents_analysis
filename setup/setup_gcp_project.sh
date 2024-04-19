@@ -15,7 +15,7 @@ ACCOUNT_ID=$1
 PROJECT_ID=$2
 EMAIL=$3
 SERVICE_ACCOUNT_NAME=us-acci-srvc-acct
-KEY_FILE=~/us_accidents_analysis/.keys/us_accidents_srvc_acct.json
+KEY_FILE=.keys/us_accidents_srvc_acct.json
 
 gcloud components update
 gcloud components install alpha
